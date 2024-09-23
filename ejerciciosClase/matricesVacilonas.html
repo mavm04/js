@@ -9,23 +9,28 @@
 
 <body>
     <script>
-        var matriz5 = [[], [], [], [], []];
+        var matriz5 = new Array(5);
+        for (let i = 0; i < matriz5.length; i++) {
+            matriz5[i] = new Array(matriz5.length);
+        }
+
         var resultadoPorLinea = "";
 
         for (let i = 0; i < matriz5.length; i++) {
-            for (let j = 0; j < matriz5.length; j++) {
+            for (let j = 0; j < matriz5[i].length; j++) {
 
                 if (i == 0 || j == 0) {
-                    resultadoPorLinea += 1 + ",";
-                } 
-                else {
-                    resultadoPorLinea += (j)+(i) + ",";
+                    matriz5[i][j] = 1;
                 }
+                else {
+                    matriz5[i][j] = matriz5[i - 1][j] + matriz5[i][j - 1];
+                }
+                
+                resultadoPorLinea += matriz5[i][j] + " ";
             }
             console.log(resultadoPorLinea);
             resultadoPorLinea = "";
         }
     </script>
 </body>
-
 </html>

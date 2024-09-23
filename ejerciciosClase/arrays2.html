@@ -23,11 +23,12 @@
         var arr3 = []
         let i = 0;
         let j = 0;
+        
         /*
         COMPLETA EL CÓDIGO EN ESTA SECCIÓN DEL PROGRAMA.
         */
 
-        for (; i < arr1.length || j < arr2.length;) {
+        while (i < arr1.length || j < arr2.length) {
             if (i < arr1.length && (j >= arr2.length || arr1[i] <= arr2[j])) {
                 arr3.push(arr1[i]);
                 i++;

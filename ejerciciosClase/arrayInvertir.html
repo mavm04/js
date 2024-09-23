@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <form action="#">
-        <label for="texto">Escribe el texto para dar la vuelta: </label>
-        <input type="text" name="texto" id="texto">
-    </form><br>
-    
+  </head>
+  <body>
+    <form>
+      <label for="texto">Escribe el texto para dar la vuelta:</label>
+      <input type="text" name="texto" id="texto" /><br/>
+    </form>
+
+    <button onclick=invertirTexto()>Pulsa Aqui</button>
+    <br />
+
+    <p>Texto invertido: </p>
     <p id="textoInvertido"></p>
+
     <script>
+      function invertirTexto() {
+        let textobase = document.getElementById("texto").value;
+        let arr1 = Array.from(textobase);
+        let arr2 = new Array(arr1.length);
 
+        for (let i = 0; i < arr1.length; i++) {
+          arr2[arr2.length - 1 - i] = arr1[i];
+        }
 
+        document.getElementById("textoInvertido").innerHTML = arr2;
+      }
     </script>
-</body>
+  </body>
 </html>

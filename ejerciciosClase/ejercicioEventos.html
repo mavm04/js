@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    <label for="nombre">Introduce tu nombre:</label>
+    <input type="text" name="nombre" id="nombre">
+
+    <p><strong>Pasa el raton por la imagen</strong></p>
+    <img onmousemove="agrandarImagen(this)" onmouseout="imagenNormal(this)" src="/img/amarillo.jpeg" alt="amarillo">
+
+    <script>
+
+        let campoNombre = document.getElementById("nombre");
+        //asigno el elemento al campo
+        campoNombre.addEventListener("blur", alertaBlur, true);
+        function alertaBlur(x) {
+            alert("Has salido del campo para introducir el nombre.");    
+        }
+
+        //funciones para cambiar el tamaño de la imagen
+        function agrandarImagen(x) {
+            x.style.height = "250px";
+            x.style.width = "250px";
+        }
+
+        function imagenNormal(x) {
+            x.style.height = "125px";
+            x.style.width = "125px";
+        }
+
+    </script>
+</body>
+</html>

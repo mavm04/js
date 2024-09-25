@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+</head>
+
+<body>
+    <h1>CRONOMETRO</h1>
+    <span id="minutos"><strong>0</strong></span>
+    <span>:</span>
+    <span id="segundos"><strong>0</strong></span>
+
+
+    <script>
+        var maxValor = 59;
+        setInterval(cronometro, 10);
+
+        function cronometro() {
+            var segundos = parseInt(document.getElementById("segundos").innerHTML, 10);
+            var minutos = parseInt(document.getElementById("minutos").innerHTML, 10);
+
+            if (segundos < maxValor) {
+                document.getElementById("segundos").innerHTML = segundos + 1;
+            } else {
+                document.getElementById("segundos").innerHTML = 0;
+                if (minutos > maxValor) {
+                    document.getElementById("minutos").innerHTML = minutos + 1;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

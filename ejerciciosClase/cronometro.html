@@ -12,27 +12,33 @@
     <span id="minutos"><strong>0</strong></span>
     <span>:</span>
     <span id="segundos"><strong>0</strong></span>
-
+    <span>:</span>
+    <span id="milisegundos"><strong>0</strong></span>
 
     <script>
-        var maxValor = 59;
+        const maxValor = 59;
+        const maxValorMilisegundos = 99;
+
+        //se ejecuta cada 10ms
         setInterval(cronometro, 10);
 
         function cronometro() {
-            var segundos = parseInt(document.getElementById("segundos").innerHTML, 10);
-            var minutos = parseInt(document.getElementById("minutos").innerHTML, 10);
+            let milisegundos = parseInt(document.getElementById("milisegundos").innerText, 10);
+            let segundos = parseInt(document.getElementById("segundos").innerText, 10);
+            let minutos = parseInt(document.getElementById("minutos").innerText, 10);
 
-            if (segundos < maxValor) {
-                document.getElementById("segundos").innerHTML = segundos + 1;
+            if (milisegundos < maxValorMilisegundos) {
+                document.getElementById("milisegundos").innerText = milisegundos + 1;
             } else {
-                document.getElementById("segundos").innerHTML = 0;
-                if (minutos > maxValor) {
-                    document.getElementById("minutos").innerHTML = minutos + 1;
+                document.getElementById("milisegundos").innerText = 0;
+                if (segundos < maxValor) {
+                    document.getElementById("segundos").innerText = segundos + 1;
+                } else {
+                    document.getElementById("segundos").innerText = 0;
+                    document.getElementById("minutos").innerText = minutos + 1;
                 }
             }
         }
-
     </script>
 </body>
-
 </html>

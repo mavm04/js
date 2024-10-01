@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karratraka</title>
+</head>
+<body>
+
+    <h1>Secuencia de Karratraka:</h1>
+    <p>Añade la longitud de secuencia:</p>
+    <input id="longitudSecuencia" type="text">
+    <input onclick="sacarLongitud()" id="btnEmpezar" type="button" value="Empezar Secuencia">
+    <p id="resultado"></p>
+    
+    <script>
+        var longitud = "";
+
+        function sacarLongitud() {
+            longitud = document.getElementById('longitudSecuencia').value;
+            if (longitud > 3 && !isNaN(longitud)){
+                var arr = new Array(parseInt(longitud));
+                crearSucesion(arr);
+            }
+        }
+
+        function crearSucesion(arr) {
+            arr[0] = 1;
+            arr[1] = 1;
+
+            for (let i = 2; i < arr.length; i++) {
+                arr[i] = arr[i-1] + arr[i-2] + 1;
+            }
+
+            document.getElementById('resultado').innerHTML = arr;
+        }
+    </script>
+</body>
+</html>

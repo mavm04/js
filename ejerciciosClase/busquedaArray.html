@@ -1,31 +1,31 @@
 <html>
-
 <head>
     <title>Sumatorio de un array</title>
 </head>
 
 <body>
     <h1>Encuentra cuantas veces aparece un número en un array multidimensional</h1>
-
-    <br>
-    <label for="num">Numero a encontrar: </label>
-    <input id="num" name="num" type="text"><br>
-
+    <button onclick="recorrerArray(numeros, num)">Ejecutar</button><br><br>
+    <label>El resultado es: </label>
+    <p id="resultado"></p>
     <script>
-        let numeros = [1, [2, 3, 4], [8, 15, [5, 1]], 27];
-        let num = parseInt(document.getElementById('num').value);
+        const numeros = [1, [2, 3, 4], [8, 15, [5, 1]], 27];
+        var num = 1;
+        console.log(num);
+        var cuenta = 0; 
 
-        function recorrerArray(numeros) {
+        function recorrerArray(numeros, num) {
             for (let i = 0; i < numeros.length; i++) {
                 if (Array.isArray(numeros[i])) {
-                   
-                    recorrerArray(numeros[i]);
+                    recorrerArray(numeros[i], num);
                 } else {
-                    console.log(numeros [i]);
+                    if(num == numeros[i]){
+                        cuenta++;
+                    }
                 }
             }
+            document.getElementById('resultado').innerHTML = cuenta;
         }
     </script>
 </body>
-
 </html>

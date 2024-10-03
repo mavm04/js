@@ -21,27 +21,23 @@
         ];
 
         function color(minas) {
-            for (let i = 0; i < minas.length; i++) {
-                for (let j = 0; j < minas[i].length; j++) {
-                    if (minas[i][j] == 1) {
-                        if (i - 1 >= 0 && minas[i - 1][j] < 1) {
-                            minas[i - 1][j] = 2;
-                        }
-                        if (i + 1 < minas.length && minas[i + 1][j] != 1) {
-                            minas[i + 1][j] = 2;
-                        }
-                        if (j + 1 < minas.length && minas[i][j + 1] != 1) {
-                            minas[i][j + 1] = 2;
-                        }
-                        if (j - 1 >= 0 && minas[i][j - 1] != 1) {
-                            minas[i][j - 1] = 2;
+
+            var flag = 1
+            while (flag = 1) {
+                flag = 0;
+
+                for (let i = 0; i < minas.length; i++) {
+                    for (let j = 0; j < minas[i].length; j++) {
+
+                        if (minas[i][j]==1) {
+                            
                         }
                     }
                 }
             }
         }
         console.log(minas);
-        
+
     </script>
 </body>
 

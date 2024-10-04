@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros Unicos</title>
+</head>
+
+<body>
+    <h2>JavaScript Arrays</h2>
+    <p>
+        Se pide que crees un programa que muestre los elementos no repetidos de
+        un array.
+        Si el número está repetido dos o más veces no deberá ser mostrado.
+        No puedes modificar el array inicial ni puedes crear ningún otro array,
+        pila o estructura similar.
+        Solamente puedes utilizar el método length de arrays y ningún otro más
+        Muestra el resultado en el campo demo.
+    </p>
+    <p id="demo"></p>
+    <script>
+        var arr1 = [1, 4, 6, 8, 9, 45, 8, 6, 4, 15, 98, 45, 15];
+        /* INCLUYE AQUÍ TU PROGRAMA*/
+
+        let resultado = "";
+
+        for (var i = 0; i < arr1.length; i++) {
+            let cont = 0;
+            for (let j = 0; j < arr1.length; j++) {
+                if (arr1[i] == arr1[j]) {
+                    cont++;
+                    if (cont >=2) {
+                        break;
+                    }
+                }
+            }
+            if(cont == 1){
+                resultado += arr1[i] + ", "
+            }
+        }
+
+        document.getElementById('demo').innerHTML = resultado;
+    </script>
+</body>
+
+</html>

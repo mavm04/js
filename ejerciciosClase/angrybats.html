@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angry Bats</title>
+</head>
+
+<body>
+    <script>
+        var arr = [
+            ['M', 'M', 'G', 'H', 'H', 'R'],
+            ['M', 'M', 'G', 'H', 'H', 'G'],
+            ['P', 'G', 'M', 'H', 'H', 'G'],
+            ['G', 'R', 'M', 'H', 'G', 'G'],
+            ['R', 'R', 'H', 'H', 'G', 'P']
+        ];
+
+        console.log('Matriz sin modificar.');
+        console.table(arr);
+
+        angryBats(2, 2);
+
+        function angryBats(fila, columna) {
+            if (fila < 0 || fila >= arr.length || columna < 0 || columna >= arr[fila].length) {
+                return;
+            }
+
+            let especie = arr[fila][columna];
+
+            if (especie != 'M' && especie != 'H') {
+                return;
+            }
+
+            // Si es un murciélago, infecta humanos adyacentes y propaga la infección
+            if (especie == 'M') {
+                arr[fila][columna] = 'm';
+
+                if (fila > 0 && arr[fila - 1][columna] == 'M') {
+                    angryBats(fila - 1, columna);
+                }
+                if (fila < arr.length - 1 && arr[fila + 1][columna] == 'M') {
+                    angryBats(fila + 1, columna);
+                }
+                if (columna > 0 && arr[fila][columna - 1] == 'M') {
+                    angryBats(fila, columna - 1);
+                }
+                if (columna < arr[fila].length - 1 && arr[fila][columna + 1] == 'M') {
+                    angryBats(fila, columna + 1);
+                }
+
+                if (fila > 0 && arr[fila - 1][columna] == 'H') {
+                    infectarHumano(fila - 1, columna);
+                }
+                if (fila < arr.length - 1 && arr[fila + 1][columna] == 'H') {
+                    infectarHumano(fila + 1, columna);
+                }
+                if (columna > 0 && arr[fila][columna - 1] == 'H') {
+                    infectarHumano(fila, columna - 1);
+                }
+                if (columna < arr[fila].length - 1 && arr[fila][columna + 1] == 'H') {
+                    infectarHumano(fila, columna + 1);
+                }
+            }
+
+            if (especie == 'H') {
+                infectarHumano(fila, columna);
+            }
+        }
+
+        // Función para infectar humanos ('H')
+        function infectarHumano(fila, columna) {
+            if (arr[fila][columna] == 'H') {
+                arr[fila][columna] = ' '; 
+
+                if (fila > 0 && arr[fila - 1][columna] == 'H') {
+                    infectarHumano(fila - 1, columna);
+                }
+                if (fila < arr.length - 1 && arr[fila + 1][columna] == 'H') {
+                    infectarHumano(fila + 1, columna);
+                }
+                if (columna > 0 && arr[fila][columna - 1] == 'H') {
+                    infectarHumano(fila, columna - 1);
+                }
+                if (columna < arr[fila].length - 1 && arr[fila][columna + 1] == 'H') {
+                    infectarHumano(fila, columna + 1);
+                }
+            }
+        }
+        console.log('Matriz infectada.');
+        console.table(arr); 
+    </script>
+</body>
+</html>

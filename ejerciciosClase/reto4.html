@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <!--Se pide que hagas un programa que muestre la media de TODAS las notas de los 3 alumnos que tenemos en nuestro JSON.
+    Mi script solo tiene 3 líneas (aparte del JSON por supuesto).-->
+    <script>
+        var valumnos = {
+            "alumnos": [{
+                "nombre": "Fulanito",
+                "notas": {
+                    "DWEC": 8,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            },
+            {
+                "nombre": "Menganito",
+                "notas": {
+                    "DWEC": 7,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            },
+            {
+                "nombre": "Cetanito",
+                "notas": {
+                    "DWEC": 6,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            }]
+        };
+
+        var total = 0, count = 0;
+        valumnos.alumnos.forEach(alumno => Object.values(alumno.notas).forEach(nota => {
+            total += nota; 
+            count++; 
+        }));
+        document.getElementById("result").innerHTML = (total / count).toFixed(2);
+    </script>
+</body>
+
+</html>

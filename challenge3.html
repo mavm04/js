@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 3</title>
+</head>
+
+<body>
+    <script>
+        //Crea un array que contenga 100 números aleatorios del uno al 1000,
+        //pero que no se repita ninguno.
+
+        function numeroAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let arrayNum = [];//array 1000 num aleatorios
+
+        function rellenarArray() {
+            let nuevoNumero = numeroAleatorio(1, 1000);
+            function rellenarArray() {
+                while (arrayNum.length < 100) {
+                    let nuevoNumero = numeroAleatorio(1, 1000);
+
+                    if (!arrayNum.find(num => num === nuevoNumero)) {
+                        arrayNum.push(nuevoNumero);
+                    }
+                }
+            }
+        }
+
+        rellenarArray();
+        arreglarArray();
+
+    </script>
+</body>
+
+</html>

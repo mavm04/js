@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>retos JavaScript</title>
+</head>
+<body>
+    <h1>retos JavaScript</h1>
+    <script>
+        let frutas = ["aguacate", "pera", "manzana", "naranja", "tomate", "granada", "mango", "litchi", "nispero"];
+        let tropicales = ["aguacate", "mango", "litchi", "nispero"];
+        let tropicStock = [{
+            fruta: "aguacate",
+            stock: 50
+        },
+        {
+            fruta: "mango",
+            stock: 10
+        },
+        {
+            fruta: "litchi",
+            stock: 20
+        },
+        {
+            fruta: "nispero",
+            stock: 25
+        }];
+
+        // frutas del array frutas que sean tropicales
+        var cont = 0;
+        var arrFrutasTropicales = [];
+        function frutasTropicales(frutas, cont) {
+            if (cont < frutas.length) {
+                let fruta = frutas[cont];
+                for (let i = 0; i < tropicales.length; i++) {
+                    if (tropicales[i] == fruta) {
+                        arrFrutasTropicales.push(fruta);
+                    }
+                }
+                frutasTropicales(frutas, ++cont);
+            }
+        }
+        frutasTropicales(frutas, cont);
+        console.log('Tropicales');
+        console.table(arrFrutasTropicales);
+
+        // frutas del array frutas que NO sean tropicales
+        let contNoTrop = 0;
+        var arrFrutasNoTropicales = [];
+        function frutasNoTropicales(frutas, contNoTrop) {
+            if (contNoTrop < frutas.length) {
+                let fruta = frutas[contNoTrop];
+                let esTropical = false;
+                for (let i = 0; i < tropicales.length; i++) {
+                    if (tropicales[i] == fruta) {
+                        esTropical = true;
+                    }
+                }
+                if (!esTropical) {
+                    arrFrutasNoTropicales.push(fruta);
+                }
+                frutasNoTropicales(frutas, ++contNoTrop);
+            }
+        }
+        frutasNoTropicales(frutas, contNoTrop);
+        console.log('No tropicales');
+        console.table(arrFrutasNoTropicales);
+
+        // Nombre de las frutas con un stock mayor de 21
+        let stockMayorA21 = tropicStock.filter(fruta => fruta.stock > 21);
+        console.log('Stock mayor de 21');
+        console.table(stockMayorA21);
+    </script>
+</body>
+</html>

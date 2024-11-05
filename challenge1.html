@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challege 1</title>
+</head>
+
+<body>
+    <script>
+        //¿Serías capaz en un array de nombres de localizar la persona más popular?
+        let nombres = ['Pepe', 'Maria', 'Antonio', 'Miguel', 'Pepe', 'Beltran', 'Beltran', 'Beltran', 'Maria'];
+
+        let cuantos = 0;
+        let trendy = '';
+        //el map es un 'bucle' estilo foreach, entonces por cada 1 hace lo siguiente
+        let popular = nombres.map((nom) => {    
+            //crea un nuevo array y por cada 1 que coincida lo añada a ese array, le hacemos el lenght
+            //para que devuelva el nº(tamaño del array)
+            let contNom = nombres.filter(f => f == nom).length;
+            if (contNom > cuantos) {
+                trendy = nom;
+                cuantos = contNom;
+            }
+        });
+
+        console.log(trendy + ' ' + cuantos);
+    </script>
+</body>
+</html>

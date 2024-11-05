@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>REYES GODOS. BUSCAMAN</title>
+</head>
+<body>
+    <h1>RETO 10. VIKINGOS</h1>
+    <p id="comunicado"></p>
+<script>
+var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald","Ivar","Olaf","Bjorn","Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming","Angantyr","Horik"]}]}';
+
+let vikingos = JSON.parse(vikings);
+console.log(vikingos)
+let encontrarRey = (rey)=>{
+    let found=0;
+    vikingos.vikingos.map( e=>{
+        let rey_tmp = e.reyes.find(f=>f==rey)
+        if (rey_tmp != undefined){
+            document.getElementById("comunicado").innerHTML += "<br>"+rey+" es un rey del reino de"+e.reino;
+            found = 1;
+        }
+    })
+    if (!found) document.getElementById("comunicado").innerHTML += "<br>"+rey+" No es rey ni es na";
+    return found;
+}
+
+encontrarRey("Ivar");
+encontrarRey("FelipeVI");
+
+</script>
+
+</body>
+</html>

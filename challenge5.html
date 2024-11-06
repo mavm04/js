@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h1>Challenge 5, invertir cadena</h1>
+    <form action="">
+        <label for="resultado">Introduce el texto a dar la vuelta:</label>
+        <input type="text" name="texto" id="texto"><br>
+        <input type="button" value="Invertir" onclick="invertirCadena()"><br>
+    </form>
+    <p id="resultado">(Resultado)</p>
+    
+    <script>
+        /*
+        Realiza un programa al que se le introduzca un texto y devuelva el mismo texto pero con las letras invertidas. Por ejemplo la entrada:
+        Buenos días hoy es lunes
+        Daría la salida:
+        soneuB saíd yoh se senul
+        ***************************************** AYUDA *************************************************
+        Un string en JS es como un array. 
+        Trucos:
+        Un string en JS es como un array. Puedes acceder a la posición 5 haciendo cadena[4]
+        también puedes utilizar el length. for (let i = cadena.length - 1; i >= 0; i--) {
+        Funciones que puedes utilizar:
+        La función split() devuelve un array de elementos. Si le pasas un delimitador le servirá para distinguir cada elemento.
+        let arrcadena = cadena.split("|");
+        La función replace() puede ser también útil. cadena.replace(" ","|")
+        Puedes encadenar funciones. cadena = cadena.replace(" ","|").replace(".","|").replace(",","|").replace(";","|");
+        */
+
+        function invertirCadena() {
+            //esta es una manera de hacerlo que encontre con split(separa la cadena), reverse(invierte un array) y 
+            //join(junta un array en una cadena por un separador, si poner "" te une toda la cadena seguida).
+            let cadena = document.getElementById('texto').value;
+            let arrCadena = cadena.split("");
+            let arrCadenaInvertida = arrCadena.reverse();
+            let resultado = arrCadenaInvertida.join("");
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
